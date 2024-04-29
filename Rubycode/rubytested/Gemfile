@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'sqlite3', '~> 1.4'
+gem 'rake', '~> 13.2.1'  # Specify the version of rake
+gem 'rack', '~> 3.0'
+
+gem "rackup", "~> 2.1"
+gem 'sinatra-contrib'

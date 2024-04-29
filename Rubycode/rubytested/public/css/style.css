@@ -1,0 +1,14 @@
+body {
+    background-color: #40E0D0; /* Set the background color to blue */
+    color: red; /* Set the font color to red or any other color you prefer */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <title>Photo Album</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <style>
+      /* CSS to position the title at the top-middle of the page */
+      body {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          background-color: #40E0D0; /* Set the background color to blue */
+          color: red; /* Set the font color to red or any other color you prefer */
+      }
+
+      .author {
+          color: black; /* Set the font color to black for the author text */
+          font-size: small; /* Adjust font size as needed */
+      }
+
+      ul {
+          list-style-type: none;
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+      }
+
+      li {
+          margin-bottom: 20px;
+          margin-right: 20px;
+      }
+
+      img {
+          max-width: 200px;
+          margin-bottom: 5px;
+      }
+  </style>
+
+</head>
+<body>
+<h1>Photo Album</h1>
+<form method="post" action="/items" enctype="multipart/form-data">
+  <label>
+    <input type="text" name="name" placeholder="Enter image name" required>
+  </label>
+  <input type="file" name="image" required>
+  <button type="submit">Upload</button>
+</form>
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <%= item[1] %><br>
+      <% if item[2] %>
+        <img src="<%= item[2] %>" alt="<%= item[1] %>">
+      <% end %>
+      <form method="post" action="/items/<%= item[0] %>" style="margin-top: 5px;">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  <% end %>
+</ul>
+<p class="author">By Haydar Jawad</p> <!-- Add the author text here -->
+</body>
+</html>
